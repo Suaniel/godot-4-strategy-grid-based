@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpijn7xvq8irk"]
+
+[ext_resource type="Texture2D" uid="uid://de30buvrjis0q" path="res://player_sprites/Orc_Attack/PineTools.com_files/row-1-column-1.png" id="1_3446p"]
+[ext_resource type="Script" uid="uid://thwvykdbkqgt" path="res://scenes/enemy_orc_1.gd" id="1_sifpl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sifpl"]
+
+[node name="EnemyOrc1" type="Area2D"]
+scale = Vector2(0.17, 0.17)
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_sifpl")
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_3446p")
+
+[node name="EnemyCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sifpl")
+
+[node name="EnemyRayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 26)
