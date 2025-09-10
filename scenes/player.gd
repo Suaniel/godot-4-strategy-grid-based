@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 
 @onready var ray = $RayCast2D
@@ -14,9 +14,10 @@ var inputs := { "right" : Vector2.RIGHT,
 func _ready() -> void:
 	position = position.snapped(Vector2.ONE * tile_size) #snap rounds the result to nearest tile increment
 	position += Vector2.ONE * tile_size/2 #Player is centered in the tile
+	print('player position', position)
 
 
-func _unhandled_input(event: InputEvent):
+func _input(event: InputEvent):
 	if moving:
 		return
 	for dir in inputs.keys():

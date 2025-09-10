@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b2lx4lwuwfoce" path="res://scenes/player.tscn" id="1_2q6dc"]
 [ext_resource type="Script" uid="uid://biyeqcvmaak5r" path="res://scenes/level.gd" id="1_mx8sn"]
 [ext_resource type="Texture2D" uid="uid://caksm5pqt2i3w" path="res://Dream_Island/Nature.png" id="2_w8frs"]
-[ext_resource type="PackedScene" uid="uid://dpijn7xvq8irk" path="res://scenes/enemy_orc1.tscn" id="4_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://dpijn7xvq8irk" path="res://scenes/enemy_orc1.tscn" id="3_mx8sn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mx8sn"]
 texture = ExtResource("2_w8frs")
@@ -949,9 +949,6 @@ script = ExtResource("1_mx8sn")
 tile_map_data = PackedByteArray("AAABAAEAAgACAAIAAAABAAIAAgACAAIAAAABAAMAAgACAAIAAAABAAQAAgACAAIAAAABAAUAAgACAAIAAAACAAEAAgACAAIAAAACAAIAAgACAAIAAAACAAMAAgACAAIAAAACAAQAAgACAAIAAAACAAUAAgACAAIAAAADAAEAAgACAAIAAAADAAIAAgACAAIAAAADAAMAAgACAAIAAAADAAQAAgACAAIAAAADAAUAAgACAAIAAAAEAAEAAgACAAIAAAAEAAIAAgACAAIAAAAEAAMAAgACAAIAAAAEAAQAAgACAAIAAAAEAAUAAgACAAIAAAAFAAEAAgACAAIAAAAFAAIAAgACAAIAAAAFAAMAAgACAAIAAAAFAAQAAgACAAIAAAAFAAUAAgACAAIAAAAGAAEAAgACAAIAAAAGAAIAAgACAAIAAAAGAAMAAgACAAIAAAAGAAQAAgACAAIAAAAGAAUAAgACAAIAAAAHAAEAAgACAAIAAAAHAAIAAgACAAIAAAAHAAMAAgACAAIAAAAHAAQAAgACAAIAAAAHAAUAAgACAAIAAAAIAAEAAgACAAIAAAAIAAIAAgACAAIAAAAIAAMAAgACAAIAAAAIAAQAAgACAAIAAAAIAAUAAgACAAIAAAAJAAEAAgACAAIAAAAJAAIAAgACAAIAAAAJAAMAAgACAAIAAAAJAAQAAgACAAIAAAAJAAUAAgACAAIAAAAKAAEAAgACAAIAAAAKAAIAAgACAAIAAAAKAAMAAgACAAIAAAAKAAQAAgACAAIAAAAKAAUAAgACAAIAAAAAAAEAAgAcAAMAAAAAAAIAAgAcAAMAAAAAAAMAAgAcAAMAAAAAAAQAAgAcAAMAAAAAAAUAAgAcAAMAAAABAAAAAgAZAAIAACACAAAAAgAZAAIAACADAAAAAgAZAAIAACAEAAAAAgAZAAIAACAFAAAAAgAZAAIAACAGAAAAAgAZAAIAACAHAAAAAgAZAAIAACAIAAAAAgAZAAIAACAJAAAAAgAZAAIAACAAAAAAAgAfAAUAAFALAAYAAgAkAAUAAAALAAAAAgAkAAAAAAAKAAAAAgAjAAAAAAALAAIAAgAkAAIAAAALAAMAAgAkAAIAAAALAAQAAgAkAAIAAAALAAUAAgAkAAIAAAALAAEAAgAkAAIAAAAAAAYAAgAfAAUAAAABAAYAAgAhAAUAAAACAAYAAgAhAAUAAAADAAYAAgAhAAUAAAAEAAYAAgAhAAUAAAAFAAYAAgAhAAUAAAAGAAYAAgAhAAUAAAAHAAYAAgAhAAUAAAAIAAYAAgAhAAUAAAAJAAYAAgAhAAUAAAAKAAYAAgAhAAUAAAA=")
 tile_set = SubResource("TileSet_mx8sn")
 
-[node name="Player" parent="." instance=ExtResource("1_2q6dc")]
-position = Vector2(24, 24)
-
 [node name="WallBounds" type="Node2D" parent="."]
 
 [node name="WallCollision" type="StaticBody2D" parent="WallBounds"]
@@ -984,11 +981,17 @@ collision_mask = 10
 position = Vector2(1182, 302)
 shape = SubResource("RectangleShape2D_2r41h")
 
-[node name="EnemyOrcs" type="Node2D" parent="."]
-scale = Vector2(4, 4)
+[node name="Units" type="Node2D" parent="."]
 
-[node name="EnemyOrc1" parent="EnemyOrcs" instance=ExtResource("4_mx8sn")]
-position = Vector2(10, 6)
+[node name="EnemyUnits" type="Node2D" parent="Units"]
+
+[node name="EnemyOrc1" parent="Units/EnemyUnits" instance=ExtResource("3_mx8sn")]
+position = Vector2(90, 36)
+
+[node name="PlayerUnits" type="Node2D" parent="Units"]
+
+[node name="Player" parent="Units/PlayerUnits" instance=ExtResource("1_2q6dc")]
+position = Vector2(23, 23)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

@@ -5,8 +5,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sifpl"]
 
-[node name="EnemyOrc1" type="Area2D"]
-scale = Vector2(0.17, 0.17)
+[node name="EnemyOrc1" type="CharacterBody2D"]
+scale = Vector2(0.72, 0.72)
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("1_sifpl")
