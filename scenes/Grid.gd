@@ -5,7 +5,7 @@ class_name Grid
 extends Resource
 
 # The grid's size in rows and columns.
-@export var size := Vector2(20, 20)
+@export var size := Vector2(11, 6)
 # The size of a cell in pixels.
 @export var cell_size := Vector2(16, 16)
 
@@ -29,7 +29,7 @@ func calculate_grid_coordinates(map_position: Vector2) -> Vector2:
 #  map's limit.
 func is_within_bounds(cell_coordinates: Vector2) -> bool:
 	var out := cell_coordinates.x >= 0 and cell_coordinates.x < size.x
-	var out_y := cell_coordinates.y >=0 and cell_coordinates.y < size.y
+	var out_y := cell_coordinates.y >= 0 and cell_coordinates.y < size.y
 	return (out and out_y)
 	
 # Makes the grid_position fit within the grid's bounds.

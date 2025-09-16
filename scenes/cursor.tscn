@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c85sqptp0nhhm"]
+
+[ext_resource type="Script" uid="uid://dik2tbk33fvlp" path="res://cursor.gd" id="1_s0nli"]
+[ext_resource type="Texture2D" uid="uid://ch7f81rohqrw2" path="res://UI_elements/menu_selection_arrow.png" id="2_ndevg"]
+
+[node name="Cursor" type="Node2D"]
+script = ExtResource("1_s0nli")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(19, -22)
+rotation = 2.21133
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_ndevg")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
